@@ -46,7 +46,7 @@ public class EnemyMove : MonoBehaviour {
 		playerIsAlive = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerHealth> ().currentHealth > 0f;
 
 		bool spiderAlive = GetComponent<SpiderMovement>().currentHealth > 0f;
-        Debug.Log("spiderAlive = " + spiderAlive);
+        //Debug.Log("spiderAlive = " + spiderAlive);
 
         if (spiderAlive && playerIsAlive) {
 

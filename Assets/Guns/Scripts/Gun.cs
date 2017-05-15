@@ -28,7 +28,7 @@ public class Gun : MonoBehaviour
 				shotOrigin = t;
 			}
 		}
-		player = transform.root.gameObject.GetComponent<Rigidbody> ();
+		player = GameObject.FindGameObjectWithTag ("Player").GetComponent<Rigidbody> ();
 	}
 
 	void Update ()

@@ -7,6 +7,7 @@ TagManager:
   - PlayerCamera
   - Spider
   - ShotOrigin
+  - Hand
   layers:
   - Default
   - TransparentFX

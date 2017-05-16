@@ -16,11 +16,13 @@ public class Gun : MonoBehaviour
 	private Rigidbody player;
 	private Transform shotOrigin;
     public ParticleSystem flash;
+    private AudioSource gunFire;
 	private float nextFire;
 
 	void Start ()
 	{
-        //flash = GetComponent<ParticleSystem>();
+        //flash = GetComponentInChildren<ParticleSystem>();
+        gunFire = GetComponentInChildren<AudioSource>();
 		nextFire = Time.time;
 		Transform[] ts = gameObject.GetComponentsInChildren<Transform> ();
 		foreach (Transform t in ts) {
@@ -33,14 +35,15 @@ public class Gun : MonoBehaviour
 
 	void Update ()
 	{
-		if (Input.GetButton ("Fire1") && Time.time > nextFire && flash.isEmitting == false) {
+		if (Input.GetButton ("Fire1") && Time.time > nextFire) {
 			nextFire = Time.time + 1.0f / fireRate;
 			//Debug.Log (shotOrigin);
 			GameObject newShot = Instantiate (shot, shotOrigin.position, shotOrigin.rotation) as GameObject;
 			newShot.GetComponent<Rigidbody> ().velocity = shotSpeed * shotOrigin.up + Vector3.Project (player.velocity, shotOrigin.up);
 			newShot.AddComponent<DestroyByDistance> ().maxDistance = range;
 			newShot.AddComponent<DestroyByContact> ().damage = damage;
-            flash.Play();            
+            flash.Play();
+            gunFire.Play();
 		}
 
         

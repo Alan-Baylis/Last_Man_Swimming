@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class FillManager : MonoBehaviour {
 
-    private Color Healthy = new Color(0f, 1f, 0f);
-    private Color Weak = new Color(1f, 1f, 0f);
-    private Color Dying = new Color(1f, 0f, 0f);
+    private Color Healthy = new Color(0f, 1f, 0f, 25f);
+    private Color Weak = new Color(1f, 1f, 0f, 25f);
+    private Color Dying = new Color(1f, 0f, 0f, 25f);
     private Image healthSliderFill;
     private float playerHealth;
 

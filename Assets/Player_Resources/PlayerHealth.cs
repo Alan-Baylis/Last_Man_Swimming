@@ -16,7 +16,7 @@ public class PlayerHealth : MonoBehaviour {
     private AudioSource playerAudio;
 
     private bool damaged;
-    private bool isDead;
+    private bool isDead = false;
     
 	// Use this for initialization
 	void Start () {
@@ -44,20 +44,19 @@ public class PlayerHealth : MonoBehaviour {
 
     public void TakeDamage(int amount) {
 
-        damaged = true;
-        //Debug.Log("damaged = " + damaged);
+        damaged = true;        
         currentHealth -= amount;
-
-        playerAudio.Play();
-
         HealthSlider.value = currentHealth;
+        playerAudio.Play();
+        Debug.Log("damaged = " + amount + ", currentHealth = " + currentHealth);          
 
         if (currentHealth <= 0 && !isDead) {
+            Debug.Log("Player is Dead!");
             Death();
         }
     }
 
-    private void Death() {
+    private void Death() {        
         playerAudio.clip = playerDeath;
         playerAudio.Play();
         isDead = true;        

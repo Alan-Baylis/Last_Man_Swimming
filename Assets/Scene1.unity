@@ -3851,6 +3851,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc283a5ee0ed24548b5d5a4772958d2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hand: {fileID: 864626135}
   padding: 80
   resetInvantoryOnStart: 1
   invantoryRoot: {fileID: 285577061}
@@ -4115,7 +4116,7 @@ GameObject:
   - component: {fileID: 864626136}
   m_Layer: 0
   m_Name: Hand
-  m_TagString: Untagged
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5571,16 +5572,6 @@ Prefab:
     - target: {fileID: 4552243304864624, guid: 8719e65f629a9b647b9dd63f37402de7, type: 2}
       propertyPath: m_RootOrder
       value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 135964450528349050, guid: 8719e65f629a9b647b9dd63f37402de7,
-        type: 2}
-      propertyPath: m_Radius
-      value: 5.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 135964450528349050, guid: 8719e65f629a9b647b9dd63f37402de7,
-        type: 2}
-      propertyPath: m_Center.y
-      value: -0.75
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8719e65f629a9b647b9dd63f37402de7, type: 2}

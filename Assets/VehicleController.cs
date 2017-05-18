@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class VehicleController : MonoBehaviour {
 
     public bool playerInVehicle;
+    public Text message;
     public Animator anim;
 
 	// Use this for initialization
@@ -28,6 +30,8 @@ public class VehicleController : MonoBehaviour {
 	void Update () {
         if (playerInVehicle) {
             anim.SetBool("IsMoving", true);
+        } else if (Vector3.Distance(transform.position, GameObject.FindGameObjectWithTag("Player").transform.position) < 10) {
+            message.text = "Press G to enter vehicle";
         }
 	}
 

@@ -38,8 +38,12 @@ public class InvantoryObject : ScriptableObject
 
     public GameObject objectPrefab;
     public Sprite objectImage;
-    public int quantity = 0;
+    public int quantity = 1;
     public InvantoryItemLogic itemLogic;
+	public InventoryEquipLogic equipLogic;
     public string objectTooltip;
+	public float rotationX;
+	public float rotationY;
+	public float rotationZ;
 
 }

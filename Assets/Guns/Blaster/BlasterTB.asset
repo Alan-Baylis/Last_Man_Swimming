@@ -18,4 +18,9 @@ MonoBehaviour:
   itemLogic:
     logicType: 0
     name: Blaster
+  equipLogic:
+    equipType: 1
   objectTooltip: 
+  rotationX: 70
+  rotationY: 0
+  rotationZ: 0

@@ -37,7 +37,7 @@ public class Gun : MonoBehaviour
 	{
 		if (Input.GetButton ("Fire1") && Time.time > nextFire) {
 			nextFire = Time.time + 1.0f / fireRate;
-			//Debug.Log (shotOrigin);
+			Debug.Log ("Shooting: " + shotOrigin);
 			GameObject newShot = Instantiate (shot, shotOrigin.position, shotOrigin.rotation) as GameObject;
 			newShot.GetComponent<Rigidbody> ().velocity = shotSpeed * shotOrigin.up + Vector3.Project (player.velocity, shotOrigin.up);
 			newShot.AddComponent<DestroyByDistance> ().maxDistance = range;

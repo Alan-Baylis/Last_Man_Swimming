@@ -24,7 +24,7 @@ using UnityEngine.EventSystems;
 public class Invantory : MonoBehaviour
 {
 	// where the player holds objects
-	//public Transform hand;
+	public Transform hand;
 	public float padding = 5.0f;
 	[Tooltip ("Resets the entire invantory system to have 0 items picked up. This is useful for testing in editor and for restarting each game")]
 	public bool resetInvantoryOnStart = true;
@@ -81,28 +81,42 @@ public class Invantory : MonoBehaviour
 			currentlySelectedItem++;
 		else
 			currentlySelectedItem--;
-		SlotChange ();
-
-	}
-
-	public void ToggleSlotAtID (int id)
-	{
-		invantorySlots [currentlySelectedItem].GetComponent<InvantorySlot> ().ToggleSlot (false);
-		currentlySelectedItem = id;
-		SlotChange ();
-	}
-
-	private void SlotChange ()
-	{
 		currentlySelectedItem = Mathf.Clamp (currentlySelectedItem, 0, invantorySlots.Count - 1);
 		invantorySlots [currentlySelectedItem].GetComponent<InvantorySlot> ().ToggleSlot (true);
-		//Instantiate (invantoryItems [currentlySelectedItem], hand);
+		UpdateEquipped ();
 		if (useTooltip) {
 			if (currentlySelectedItem >= 0 && currentlySelectedItem < objectsInInvantory.Count)
 				tooltipText.text = objectsInInvantory [currentlySelectedItem].objectTooltip;
 			else
 				tooltipText.text = "";
 		}
+	}
+
+	public void ToggleSlotAtID (int id)
+	{
+		invantorySlots [currentlySelectedItem].GetComponent<InvantorySlot> ().ToggleSlot (false);
+		currentlySelectedItem = id;
+		currentlySelectedItem = Mathf.Clamp (currentlySelectedItem, 0, invantorySlots.Count - 1);
+		invantorySlots [currentlySelectedItem].GetComponent<InvantorySlot> ().ToggleSlot (true);
+		UpdateEquipped ();
+		if (useTooltip) {
+			if (currentlySelectedItem >= 0 && currentlySelectedItem < objectsInInvantory.Count)
+				tooltipText.text = objectsInInvantory [currentlySelectedItem].objectTooltip;
+			else
+				tooltipText.text = "";
+		}
+	}
+
+	private void UpdateEquipped ()
+	{
+		foreach (Transform child in hand) {
+			Destroy (child.gameObject);
+		}
+		if (currentlySelectedItem >= objectsInInvantory.Count) {
+			return;
+		}
+		InvantoryObject currentObject = objectsInInvantory [currentlySelectedItem];
+		currentObject.equipLogic.EquipItem (currentObject, hand);
 	}
 
 	private void InitGUI ()
@@ -183,10 +197,12 @@ public class Invantory : MonoBehaviour
 			else
 				tooltipText.text = "";
 		}
+		UpdateEquipped ();
 	}
 
 	public void UseSelectedItem ()
 	{
+		Debug.Log ("Using selected item");
 		if (currentlySelectedItem >= objectsInInvantory.Count || objectsInInvantory.Count == 0)
 			return;
 
@@ -211,6 +227,7 @@ public class Invantory : MonoBehaviour
 			else
 				tooltipText.text = "";
 		}
+		UpdateEquipped ();
 	}
 
 	public void UseItemAtID (int id)
@@ -240,6 +257,7 @@ public class Invantory : MonoBehaviour
 			else
 				tooltipText.text = "";
 		}
+		UpdateEquipped ();
 	}
 
 	void ResetInvantory ()

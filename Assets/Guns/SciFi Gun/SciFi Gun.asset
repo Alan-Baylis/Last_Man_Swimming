@@ -14,8 +14,10 @@ MonoBehaviour:
   objectPrefab: {fileID: 1036239510165754, guid: 5ae70a7dcdc424b4a9c227038dd14250,
     type: 2}
   objectImage: {fileID: 21300022, guid: 71a7f8669de848e45ba57bda95f3a58e, type: 3}
-  quantity: 1
+  quantity: 0
   itemLogic:
     logicType: 0
     name: SciFi Gun
+  equipLogic:
+    equipType: 1
   objectTooltip: 

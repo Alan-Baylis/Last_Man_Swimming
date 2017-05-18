@@ -7,13 +7,15 @@ public class HandController : MonoBehaviour
 	public float offsetXRot = 0.0f;
 	public float offsetYRot = 0.0f;
 	public float offsetZRot = 0.0f;
-	private Quaternion parentRotation;
+
+	public void SetOffsets(float x, float y, float z) {
+		offsetXRot = x;
+		offsetYRot = y;
+		offsetZRot = z;
+	}
 
 	void Update ()
 	{
-		parentRotation = transform.parent.gameObject.transform.rotation;
-		transform.rotation = parentRotation * Quaternion.AngleAxis (offsetXRot, Vector3.forward)
-		* Quaternion.AngleAxis (offsetYRot, Vector3.up)
-		* Quaternion.AngleAxis (offsetZRot, Vector3.right);
+		transform.localRotation = transform.localRotation * Quaternion.Euler (offsetXRot, offsetYRot, offsetZRot);
 	}
 }

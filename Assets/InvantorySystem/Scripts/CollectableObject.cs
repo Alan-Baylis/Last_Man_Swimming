@@ -26,18 +26,25 @@ public class CollectableObject : MonoBehaviour
 	private Light highlight;
 	// the distance at which light intensity is maximized
 	private float lightScaling = 45f;
-	private float minLightIntensity = 0.05f;
+	private float minLightIntensity = 0.1f;
 	private float maxLightIntensity = 0.8f;
 	public float justSpawnedTime = 1.5f;
+	public float offsetXRot = 0.0f;
+	public float offsetYRot = 0.0f;
+	public float offsetZRot = 0.0f;
+
+	void Awake () {
+		if (gameObject.CompareTag ("Weapon")) {
+			GetComponent<Gun> ().enabled = false;
+		}
+	}
 
 	void Start ()
 	{
 		player = GameObject.FindGameObjectWithTag ("Player");
-		gameObject.AddComponent<Rigidbody> ();
 		highlight = gameObject.GetComponent<Light> ();
 		highlight.color = new Color (1f, 1f, 0.4f, 1f);
 		highlight.range = 2;
-
 		justSpawned = true;
 		StartCoroutine (SpawnSleepTimer ());
 	}

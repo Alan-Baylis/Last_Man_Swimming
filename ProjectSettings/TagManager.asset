@@ -9,6 +9,7 @@ TagManager:
   - ShotOrigin
   - Hand
   - ObjectHighlight
+  - Weapon
   layers:
   - Default
   - TransparentFX

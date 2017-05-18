@@ -13,7 +13,7 @@ public class InventoryEquipLogic
 
 	public void EquipItem (InvantoryObject obj, Transform hand)
 	{
-		Debug.Log ("Equipping inventory object " + obj);
+		//Debug.Log ("Equipping inventory object " + obj);
 		GameObject newObj = GameObject.Instantiate (obj.objectPrefab, Vector3.zero, hand.rotation, hand) as GameObject;
 		newObj.gameObject.transform.localPosition = Vector3.zero;
 		CollectableObject collectable = obj.objectPrefab.GetComponent<CollectableObject> ();

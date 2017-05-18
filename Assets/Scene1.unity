@@ -5168,7 +5168,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 50, y: -15}
+  m_AnchoredPosition: {x: 50, y: -25}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1330707476
@@ -5183,7 +5183,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.49264705, g: 0.49626946, b: 0.49626946, a: 1}
+  m_Color: {r: 0.9852941, g: 0.2753028, b: 0.37812898, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -5192,10 +5192,10 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 2
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -5817,8 +5817,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68e8d7710e9c93a408ba56966b4285f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 748833492}
   playerInVehicle: 0
-  message: {fileID: 0}
+  message: {fileID: 1330707476}
   anim: {fileID: 1657141865}
 --- !u!95 &1657141865 stripped
 Animator:

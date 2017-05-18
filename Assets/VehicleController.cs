@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class VehicleController : MonoBehaviour {
 
+    public GameObject player;
     public bool playerInVehicle;
     public Text message;
     public Animator anim;
@@ -30,7 +31,8 @@ public class VehicleController : MonoBehaviour {
 	void Update () {
         if (playerInVehicle) {
             anim.SetBool("IsMoving", true);
-        } else if (Vector3.Distance(transform.position, GameObject.FindGameObjectWithTag("Player").transform.position) < 10) {
+        } else if (Vector3.Distance(transform.position, player.transform.position) < 10) {
+            Debug.Log("Player Can See Ship!");
             message.text = "Press G to enter vehicle";
         }
 	}

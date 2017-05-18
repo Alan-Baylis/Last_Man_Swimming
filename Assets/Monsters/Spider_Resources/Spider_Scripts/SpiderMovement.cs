@@ -40,7 +40,13 @@ public class SpiderMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        bool playerIsAlive = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>().currentHealth > 0;
+        bool playerIsAlive = false;
+        if (playerHealth != null)
+        {
+            playerIsAlive = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>().currentHealth > 0;
+        }
+        
+        
         timer += Time.deltaTime;
         //
         if (!isDead && playerIsAlive)

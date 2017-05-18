@@ -41,8 +41,13 @@ public class EnemyMove : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+        if (GameObject.FindGameObjectWithTag("Player") != null) {
+            playerIsAlive = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>().currentHealth > 0f;
+        }else
+        {
+            playerIsAlive = false;
+        }
 		
-		playerIsAlive = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerHealth> ().currentHealth > 0f;
 
 		bool spiderAlive = GetComponent<SpiderMovement>().currentHealth > 0f;
         //Debug.Log("spiderAlive = " + spiderAlive);

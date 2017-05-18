@@ -44,7 +44,7 @@ public class CollectableObject : MonoBehaviour
 
 	void Update ()
 	{
-		if (!justSpawned) {
+		if (!justSpawned && player != null) {
 			// set light intensity based on distance
 			float distance = Vector3.Distance (transform.position, player.transform.position);
 			highlight.intensity = Mathf.Clamp (distance / lightScaling, minLightIntensity, maxLightIntensity);
